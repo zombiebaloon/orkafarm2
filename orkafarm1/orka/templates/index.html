@@ -1,0 +1,203 @@
+{% extends 'navigation.html' %}
+{% load static %}
+{% block body %}
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+
+      <div class="carousel-inner" role="listbox">
+
+        <!-- Slide 1 -->
+        <div class="carousel-item active" style="background-image: url({% static 'assets/img/index01.jpg' %}); width: 100%; height: 100%; margin-top:50px;">
+          <div class="carousel-container">
+            <div class="carousel-content animate__animated animate__fadeInUp">
+              <h2 style="text-align: center;">WELCOME TO <span>ORKAFARM</span></h2>
+              <p style="text-align: center;">“Fresh Farm Innovation”</p>
+              <!-- <div class="text-center"><a href="#" class="btn-get-started"><b>BUY OUR PRODUCTS</b></a></div> -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item" style="background-image: url({% static 'assets/img/index2.jpg' %});">
+          <div class="carousel-container">
+            <div class="carousel-content animate__animated animate__fadeInUp">
+              <h2 style="text-align: center;">Orka Fishery</h2>
+              <p style="text-align: center;"><b>“Quality is the Essence”</b></p>
+              <div class="text-center"><a href="{% url 'farm' %}" class="btn-get-started"><b>KNOW MORE</b></a></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-item" style="background-image:url({% static 'assets/img/farm2.jpeg' %}); position: absolute; width: 100%;height: 100%;">
+          <div class="carousel-container">
+            <div class="carousel-content animate__animated animate__fadeInUp">
+              <h2 style="text-align: center;">SUSTAINABLE FARMING PRACTICES</h2>
+              <p style="text-align: center;"></p>
+              <div class="text-center"><a href="{% url 'farm' %}" class="btn-get-started"><b>KNOW MORE</b></a></div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item" style="background-image: url({% static 'assets/img/index5.jpg' %}); height:100%; width: 100%;">
+          <div class="carousel-container">
+            <div class="carousel-content animate__animated animate__fadeInUp">
+              <h2 style="text-align: center;">Orka Mangoes</h2>
+              <p style="text-align: center;"><b></b></p>
+              <div class="text-center"><a href="{% url 'farm' %}" class="btn-get-started"><b>KNOW MORE</b></a></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon icofont-simple-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+
+      <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon icofont-simple-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+
+      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Us Section ======= -->
+    <section id="about-us" class="about-us">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>About Us</strong></h2>
+        </div>
+
+        <div class="row content">
+          <div class="col-lg-6" data-aos="fade-right">
+            <h2><img src="{% static 'assets/img/index3.jpg' %}" class="img" style="width: 100%; height: 100%;margin-left: 1%; border-radius: 10%;"></h2>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-left">
+            <p style="padding-top: 35px; font-size: larger;">
+              Orka Shrimp is the main product of Orkas prortfolio.  It has its farms located in Sindhurdurg as well as Alibagh.  The ponds are spread across 15 acres of land taken together.  It has in house nursery which ensures maximum output from its ponds thereby reducing the cultivation period.  The average turnover of both the locations is more than 80 tonnes per annum. Orka proudly produces export quality shrimps.<a href="{% url 'farm' %}">read more...</a></b>
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Us Section -->
+
+    <!-- ======= Services Section ======= -->
+    <!-- End Services Section -->
+    <section id="portfolio" class="portfolio">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>OUR FARMS</h2>
+          <img src="{% static 'assets/img/farm4.jpeg' %}" class="img" style="width: 60%;height: 60%; border-radius: 10%;";>
+          <p style="padding-top: 20px; font-size: larger;">Orka Farm has its headquarters in Mumbai and have its farms located across different places in Maharashtra. Orka Trading, is an in house portal which makes available orka products to its customers at click of a button. Retail customers can order online Orka products which varies from spices to Mangoes. <a href="{% url 'farm' %}">read more...</a></p>
+        </div>
+        </div>
+        </section>
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Products</h2>
+        </div>
+
+        <!-- <div class="row" data-aos="fade-up">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-app">SPICES</li>
+              <li data-filter=".filter-card">PULSES</li>
+              <li data-filter=".filter-web">DRY FRUITS</li>
+            </ul>
+          </div>
+        </div> -->
+
+        <div class="row portfolio-container" data-aos="fade-up">
+          {% for product in products %}
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <img src="{{product.ImageURL}}" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4></h4>
+              <p style="font-size: large;">{{product.name}}</p>
+              <a href="{{product.ImageURL}}" data-gall="portfolioGallery" class="venobox preview-link" title="{{product.name}}"><i class="bx bx-plus"></i></a>
+              <!-- <a href="{% url 'bulkorder' %}" class="details-link" title="Click For Enquiry"><i class="bx bx-link"></i></a> -->
+              <p><strong><a style="background-color: #1baabd;"  class="btn btn-outline-dark" href="{% url 'bulkorder' %}">Inquire</a></strong></p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        
+
+      </div>
+    </section><!-- End Portfolio Section -->
+
+    <!-- ======= Our Clients Section ======= -->
+    <!-- End Our Clients Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 footer-contact" style="text-align: right;">
+              <h3>OrkaFarm LLP</h3>
+              <p>
+                Corporate Office 302, 3rd flr, Akshay Apt, Off Arrey Road<br>
+                Naikwadi, Goregaon East<br>
+                Mumbai-400063, Maharashtra,India
+                 <br><br>
+                  <strong>Phone:</strong> +91 836965303<br>
+                  <strong>Email:</strong> info@orkafarm.com<br>
+                </p>
+                
+              </div>
+          <div class="col-lg-2 col-md-6 footer-contact" style="text-align:right;">
+            <h4>USEFUL LINKS</h4>
+            <p><a href="{% url 'index' %}" style="color:  rgba(255, 255, 255, 0.7);"><strong>HOME</strong></a></p>
+            <p><a href="{% url 'about' %}" style="color:  rgba(255, 255, 255, 0.7);"><strong>ABOUT US</strong></a></p>
+            <!-- <p><a href="#" style="color:  rgba(255, 255, 255, 0.7);"><strong>STORE</strong></a></p> -->
+            <p><a href="{% url 'contact' %}" style="color:  rgba(255, 255, 255, 0.7);"><strong>CONTACT</strong></a></p>
+            <p><a href="{% url 'farm' %}" style="color:  rgba(255, 255, 255, 0.7);"><strong>OUR FARM</strong></a></p>
+          </div>
+          <div class="col-lg-3 col-md-6 footer-contact" style="text-align: right;">
+            <h3>LEGAL</h3>
+                <p><a href="{% url 'terms' %}" style="color:  rgba(255, 255, 255, 0.7);"><strong>TERMS & CONDITIONS</strong></a></p>
+                <p><a href="{% url 'policy' %}" style="color:  rgba(255, 255, 255, 0.7);"><strong>POLICY</strong></a></li></p>
+            
+            
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-md-flex py-4">
+
+      <div class="mr-md-auto text-center text-md-left">
+        <div class="copyright">
+          &copy; Copyright <strong><span>OrkaFarm LLP</span></strong>. All Rights Reserved
+        </div>
+        
+      </div>
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+  </footer>
+  <!-- End Footer -->
+
+{% endblock %}
+
